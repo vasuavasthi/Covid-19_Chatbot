@@ -11,7 +11,8 @@
     },
     {
       "src": "app.py",
-      "use": "@now/python"
+      "use": "@now/python",
+      "config": { "maxLambdaSize": "25mb", "pythonVersion": 3.9 }
     }
   ],
   "routes": [
