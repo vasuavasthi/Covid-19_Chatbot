@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "templates/**/*.html",
+      "src": "templates",
       "use": "@now/static-build",
       "config": { "zeroConfig": true }
     },
