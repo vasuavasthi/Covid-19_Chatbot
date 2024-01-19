@@ -2,38 +2,23 @@
   "version": 2,
   "builds": [
     {
+      "src": "templates/**/*.html",
+      "use": "@now/static-build",
+      "config": { "zeroConfig": true }
+    },
+    {
+      "src": "static/**/*",
+      "use": "@now/static"
+    },
+    {
       "src": "app.py",
       "use": "@now/python"
     }
   ],
   "routes": [
     {
-      "src": "/templates/(.*)",
-      "dest": "/templates/$1"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/sendEmail/(.*)",
-      "dest": "/sendEmail/$1"
-    },
-    {
-      "src": "/saveConversation/(.*)",
-      "dest": "/saveConversation/$1"
-    },
-    {
-      "src": "/DataRequests/(.*)",
-      "dest": "/DataRequests/$1"
-    },
-    {
-      "src": "/covid_Faq/(.*)",
-      "dest": "/covid_Faq/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/app.py"
+      "dest": "app.py"
     }
   ]
 }
