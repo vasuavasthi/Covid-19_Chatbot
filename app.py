@@ -13,7 +13,13 @@ from pymongo import MongoClient
 
 app = Flask(__name__)  # initialising the flask app with the name 'app'
 
+def index():
+    return 'Welcome to the Flask Web Application!'
 
+# Serve favicon.ico
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # whenever dialogflow will get a request , it will hit the flask app with '/webhook'
 @app.route('/webhook', methods=['POST'])
 @cross_origin()
