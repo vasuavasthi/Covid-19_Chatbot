@@ -2,14 +2,38 @@
   "version": 2,
   "builds": [
     {
-      "src": "/app.py",
-      "use": "@vercel/static-build"
+      "src": "app.py",
+      "use": "@now/python"
     }
   ],
   "routes": [
     {
+      "src": "/templates/(.*)",
+      "dest": "/templates/$1"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/sendEmail/(.*)",
+      "dest": "/sendEmail/$1"
+    },
+    {
+      "src": "/saveConversation/(.*)",
+      "dest": "/saveConversation/$1"
+    },
+    {
+      "src": "/DataRequests/(.*)",
+      "dest": "/DataRequests/$1"
+    },
+    {
+      "src": "/covid_Faq/(.*)",
+      "dest": "/covid_Faq/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/.*/$1"
+      "dest": "/app.py"
     }
   ]
 }
